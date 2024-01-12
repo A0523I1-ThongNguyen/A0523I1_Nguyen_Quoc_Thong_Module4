@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/music/showViewCreate}">Add</a>
+<table border="2px">
+  <tr>
+    <th>STT</th>
+    <th>Name Song</th>
+    <th>Single</th>
+    <th>Type</th>
+    <th>Path</th>
+  </tr>
+
+  <tr th:each="music , loop :${listMusic}">
+
+    <td th:text="${loop.count}"></td>
+    <td th:text="${music.getNameSong()}"></td>
+    <td th:text="${music.getSingle()}"></td>
+    <td>
+      <th:block th:each="ty : ${music.getType()}">
+      <span th:text="${ty}"></span>
+      </th:block>
+    </td>
+    <td th:text="${music.getPath()}"></td>
+  </tr>
+</table>
+</body>
+</html>

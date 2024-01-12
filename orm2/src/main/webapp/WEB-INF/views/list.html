@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/showViewCreate}">Add</a>
+<table border="2px">
+  <tr>
+    <th>Stt</th>
+    <th>Name</th>
+    <th>Floor</th>
+    <th>Design</th>
+  </tr>
+
+  <tr th:each="ho , loop : ${listHouse}">
+    <td th:text="${loop.count}"></td>
+    <td th:text="${ho.name}"></td>
+    <td th:if="${ho.floor == true}" th:text="${'Co lau'}"></td>
+    <td th:if="${ho.floor == false}" th:text="${'Ko lau'}"></td>
+    <td>
+    <th:block th:each="de : ${ho.design}">
+      <span th:text="${de}"></span>
+    </th:block>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

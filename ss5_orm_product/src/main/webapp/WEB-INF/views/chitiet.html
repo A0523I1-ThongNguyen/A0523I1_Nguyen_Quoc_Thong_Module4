@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${product}">
+  ID: <input type="text" th:field="*{id}" readonly>
+  Name Product: <input type="text" th:field="*{name}" readonly>
+  price: <input type="text" th:field="*{price}" readonly>
+  description: <input type="text" th:field="*{description}" readonly>
+  manufacture: <input type="text" th:field="*{manufacture}" readonly>
+
+  <a th:href="@{/sp}">Cancel</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/pro/search}" method="post" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+      style="display: flex">
+    <input type="text" class="form-control form-control-dark" placeholder="Search..."
+           aria-label="Search" name="search">
+    <button type="submit" class="btn btn-outline-light me-2" style="margin-left: 10px">Search</button>
+</form>
+<a th:href="@{/pro/create}">Add</a>
+<div style="text-align:center;color: red" th:if="${notfind}">
+    <span th:text="${notfind}"></span>
+</div>
+<table border="2px">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Manufactory</th>
+        <th>Delete</th>
+        <th>Xem chi tiết</th>
+        <th>Update</th>
+    </tr>
+    <tr th:each="pro , loop : ${listProduct}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${pro.name}"></td>
+        <td th:text="${pro.price}"></td>
+        <td th:text="${pro.description}"></td>
+        <td th:text="${pro.manufacture}"></td>
+
+        <!--        <td><a th:href="@{/pro/delete/__${pro.getId()}__}">DELETE2</a></td>-->
+        <td><a th:href="@{/pro/delete/(id=${pro.getId()})}">DELETE</a></td>
+        <td><a th:href="@{/pro/chitiet(id=${pro.getId()})}" class="btn btn-outline-success">Xem chi tiết</a></td>
+
+       <td><a th:href="@{/pro/update/__${pro.getId()}__}" class="btn btn-outline-warning">Update</a></td>
+
+    </tr>
+</table>
+</body>
+</html>

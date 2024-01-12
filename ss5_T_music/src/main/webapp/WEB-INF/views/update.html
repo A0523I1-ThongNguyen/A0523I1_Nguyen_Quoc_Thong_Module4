@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/music/updatePost}" method="post" th:object="${musicfindById}">
+    Id: <input th:field="*{id}" th:value="${musicfindById.getId()}" type="hidden">
+    Name Song : <input type="text" th:field="*{nameSong}">
+    Singer: <input type="text" th:field="*{singer}">
+    Type : <input type="text" th:field="*{type}">
+    File : <input type="text" th:field="*{pathFile}">
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

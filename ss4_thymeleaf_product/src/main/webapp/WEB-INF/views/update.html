@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${product}" th:action="@{/pro/postUpdate}" method="post">
+    ID:<input class="form-control" type="text" th:field="*{id}" readonly>
+
+    Name:<input class="form-control" type="text" th:field="*{name}" required>
+    Price:<input class="form-control" type="text" th:field="*{price}" required>
+    Description:<input class="form-control" type="text" th:field="*{description}" required>
+    Manufacture:<input class="form-control" type="text" th:field="*{manufacture}" required>
+
+    <input type="submit">
+</form>
+</body>
+</html>

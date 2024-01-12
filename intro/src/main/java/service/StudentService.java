@@ -1,0 +1,29 @@
+package service;
+
+import model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import repository.IStudentRepository;
+
+import java.util.List;
+@Service
+public class StudentService implements IStudentService{
+
+    @Autowired
+    private IStudentRepository repository;
+
+    @Override
+    public List<Student> findAll() {
+        return repository.findAll();
+    }
+
+    @Override
+    public void save(Student student) {
+        repository.save(student);
+    }
+
+    @Override
+    public List<Student> findByName(String keyword) {
+        return null;
+    }
+}

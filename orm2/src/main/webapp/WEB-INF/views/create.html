@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8 " >
+    <title>Title</title>
+</head>
+<body>
+
+    <form th:action="@{/createPost}" method="post" th:object="${house}">
+        Name: <input type="text" th:field="*{name}">
+        Gender:
+        <input type="radio" th:field="*{floor}" value="1"> Có lầu
+        <input type="radio" th:field="*{floor}" value="0"> Không lầu
+        Languages:
+        <input type="checkbox" th:field="*{design}" value="Ban Công"> Ban Công
+        <input type="checkbox" th:field="*{design}" value="Sân Thượng"> Sân Thượng
+        <input type="checkbox" th:field="*{design}" value="Gara"> Gara
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

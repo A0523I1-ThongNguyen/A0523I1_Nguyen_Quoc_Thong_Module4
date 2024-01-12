@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/music/create}" method="post" th:object="${music}">
+    Name Song : <input type="text" th:field="*{nameSong}">
+    Single : <input type="text" th:field="*{single}">
+    Type:
+    <input type="checkbox" th:field="*{type}" value="Tinh cam">Tinh Cam
+    <input type="checkbox" th:field="*{type}" value="Tru Tinh">Tru Tinh
+    <input type="checkbox" th:field="*{type}" value="Rap">Rap
+    Path : <input type="text" th:field="*{path}">
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
