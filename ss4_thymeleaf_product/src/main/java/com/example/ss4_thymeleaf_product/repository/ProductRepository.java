@@ -14,6 +14,7 @@ public class ProductRepository implements IProductRepository {
         listProduct.add(new Product(1, "keo", 5000, "ngot", "bibica"));
         listProduct.add(new Product(2, "banh", 8000, "trung", "baongoc"));
         listProduct.add(new Product(3, "coca", 10000, "co gas", "cocacola"));
+        listProduct.add(new Product(3, "coca", 10000, "co gas", "cocacola"));
     }
 
 

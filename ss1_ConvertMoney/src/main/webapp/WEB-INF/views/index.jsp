@@ -15,20 +15,18 @@
 <form action="/convert/money" method="post">
     <tr>
         <td>Choose</td>
-        <td><input type="radio" name="e" value="usd">VND > USD</td>
-        <td><input type="radio" name="e" value="vnd"> USD > VND</td>
+        <td><input type="radio" name="e" value="usd">VND to USD</td>
+        <td><input type="radio" name="e" value="vnd"> USD to VND</td>
     </tr>
+    </br>
 
-    <tr>
+    <td>Convert</td>
+    <input type="number" id="money" name="money">
+    <td>
+        <button type="submit">Convert</button>
+    </td>
 
-    </tr>
-
-    <tr>
-        <td>Convert</td>
-        <input type="number" id="money" name="money">
-        <td><button type="submit">Chuyen doi</button></td>
-    </tr>
 </form>
-<p>Result: <c:out value="${cd}"/></p>
+<p>Result: <c:out value="${kq}"/></p>
 </body>
 </html>

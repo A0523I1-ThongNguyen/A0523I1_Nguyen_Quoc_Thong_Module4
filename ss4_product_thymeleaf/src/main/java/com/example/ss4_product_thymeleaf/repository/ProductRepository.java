@@ -62,7 +62,7 @@ public class ProductRepository implements IProductRepository {
         for (Product product : list
         ) {
             if (product.getProductName().equalsIgnoreCase(productName)) {
-                    productList.add(product);
+                productList.add(product);
             }
         }
         return productList;

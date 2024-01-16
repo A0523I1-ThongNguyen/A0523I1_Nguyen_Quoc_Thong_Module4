@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/sp/viewCreate}">Add</a>
+
+<form th:action="@{sp/search}">
+    <input type="text" name="searchPro">
+    <button>Search</button>
+</form>
+
+<form th:action="@{/sp}">
+    <button>cancel</button>
+</form>
+
+<div>
+    <span th:text="${ok}"></span>
+</div>
+<div>
+    <span th:text="${noo}"></span>
+</div>
+<table border="2px">
+    <tr>
+        <th>STT</th>
+        <th>Ten SP</th>
+        <th>Gia SP</th>
+        <th>Xoa</th>
+        <th>Xem Chi tiet</th>
+        <th>Update</th>
+    </tr>
+
+    <tr th:each="sp,loop: ${listSP}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${sp.getName()}"></td>
+        <td th:text="${sp.getPrice()}"></td>
+
+        <td>
+            <a th:href="@{sp/delete/(id=${sp.getId()})}">Xoa</a>
+        </td>
+        <td>
+            <a th:href="@{sp/chitiet/(id=${sp.getId()})}">Xem chi tiet</a>
+        </td>
+        <td>
+            <a th:href="@{sp/viewUpdate/(id=${sp.getId()})}">Update</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

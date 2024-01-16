@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" th:object="${student}">
+    <input th:field="*{id}">
+    <input th:field="*{name}">
+    <input th:field="*{email}">
+
+    <th:block th:each="lang : ${student.getCodeGymClass()}">
+        <span th:text="${lang}"></span>
+    </th:block>
+
+</form>
+</body>
+</html>
