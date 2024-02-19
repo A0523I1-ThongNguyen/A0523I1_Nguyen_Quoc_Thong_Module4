@@ -9,9 +9,12 @@ public class City {
     private int id;
     private String name;
     private int soDan;
-    @ManyToOne(cascade = CascadeType.ALL)
+//    @Column(name = "nation_name")
+//    private String nationName;
+    @ManyToOne //(cascade = CascadeType.ALL)
     @JoinColumn(name="nation_id")
     private Nation nation;
+    //Thuộc tính nation trong lớp City chỉ chứa tham chiếu đến đối tượng Nation và chỉ lưu trữ id của Nation.\
 
     public City() {
     }
@@ -46,5 +49,6 @@ public class City {
 
     public void setNation(Nation nation) {
         this.nation = nation;
+//        this.nationName = nation.getName();
     }
 }

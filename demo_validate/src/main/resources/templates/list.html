@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/st/create}">ADD</a>
+<table border="2px">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Floor</th>
+    </tr>
+    <!-- lấy kết quả danh sách dưới csdl gắn vào danh sách java hiển thị ra -->
+    <!--pageStudent= đại diện kết quả dưới csdl  trả về , class Student = bảng student , class Floor = bảng floor
+    nameStudent = cột name_student ở csdl thuộc bảng student , nameFloor= cột nameFloor ở bảng Floor
+     Hiển thị cột name_floor bằng cách: từ class Student lấy biến knFloor là đại diện class Floor trỏ tới thuộc tính nameFloor   -->
+    <tr th:each="pageStudent, loop : ${pageStudent}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${pageStudent.nameStudent}"></td>
+        <td th:text="${pageStudent.knFloor.nameFloor}"></td>
+    </tr>
+</table>
+    <div>
+        <a th:href="@{/st(page=${pageStudent.number - 1})}" th:if="${pageStudent.hasPrevious()}">Back</a>
+        <span th:text="${pageStudent.number + 1}"></span> / <span th:text="${pageStudent.totalPages}"></span>
+        <a th:href="@{/st(page=${pageStudent.number + 1})}" th:if="${pageStudent.hasNext()}">Next</a>
+    </div>
+</body>
+</html>

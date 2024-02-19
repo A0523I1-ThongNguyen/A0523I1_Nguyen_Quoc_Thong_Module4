@@ -20,10 +20,10 @@
   <td>mustard<input type="checkbox" name="e" value="mustard"></td>
   <td>sprouts<input type="checkbox" name="e" value="sprouts"></td>
 </tr>
-  <td>GD<input type="checkbox" name="z" value="GD"></td>
-  <td>Sehun<input type="checkbox" name="z" value="Sehun"></td>
-  <td>Eunji<input type="checkbox" name="z" value="Eunji"></td>
-  <td>Irene<input type="checkbox" name="z" value="Irene"></td>
+  <td>GD<input type="checkbox" name="e" value="GD"></td>
+  <td>Sehun<input type="checkbox" name="e" value="Sehun"></td>
+  <td>Eunji<input type="checkbox" name="e" value="Eunji"></td>
+  <td>Irene<input type="checkbox" name="e" value="Irene"></td>
 </hr>
 <tr>
   <button type="submit">Save</button>
@@ -32,8 +32,8 @@
 <c:forEach items="${listSand}" var="item">
   <p><c:out value="${item}"/></p>
 </c:forEach>
-<c:forEach items="${listIdol}" var="item">
-  <p><c:out value="${item}"/></p>
-</c:forEach>
+<%--<c:forEach items="${listIdol}" var="item">--%>
+<%--  <p><c:out value="${item}"/></p>--%>
+<%--</c:forEach>--%>
 </body>
 </html>

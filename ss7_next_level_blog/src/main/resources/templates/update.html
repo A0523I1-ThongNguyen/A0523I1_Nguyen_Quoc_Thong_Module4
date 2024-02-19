@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/nextbl/updatePost}" method="post" th:object="${blog}">
+    id: <input th:field="*{id}" type="hidden">
+    author: <input th:field="*{author}" type="text">
+    title:<input th:field="*{title}" type="text">
+    content: <input th:field="*{content}" type="text">
+    dateOfWrite: <input th:field="*{dateOfWrite}" type="date"  th:value="${blog.getDateOfWrite()}">
+    category:<input th:field="*{category}" >
+
+  <input type="submit">
+</form>
+</body>
+</html>

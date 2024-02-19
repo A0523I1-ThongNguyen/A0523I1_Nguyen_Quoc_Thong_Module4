@@ -29,7 +29,7 @@ public class EmailController {
     }
 
     @PostMapping(value = "postcreate")
-    public String createObject(@ModelAttribute("Object") Email email) {
+    public String createObject(@ModelAttribute("findMail") Email email) {
         emailService.save(email);
         return "redirect:/email/get";
     }
@@ -55,5 +55,11 @@ public class EmailController {
     @ModelAttribute("listSize")
     public String[] listSize() {
         return new String[]{"5", "10", "25", "50", "100", ""};
+    }
+
+    @PostMapping("/updatePost")
+    public String updatePost(@ModelAttribute("findMail") Email findMail){
+            emailService.update(findMail.getId(),findMail);
+            return "redirect:/email/get";
     }
 }

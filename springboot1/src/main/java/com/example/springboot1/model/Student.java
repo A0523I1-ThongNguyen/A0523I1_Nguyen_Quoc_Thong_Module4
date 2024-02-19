@@ -11,7 +11,7 @@ public class Student {
     private String name;
     private String email;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name="class_id")
     private CodegymClass codeGymClass;
 

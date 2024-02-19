@@ -1,25 +1,35 @@
 <%--
   Created by IntelliJ IDEA.
-  User: thanhngan
-  Date: 10/4/2023
-  Time: 4:13 PM
+  User: Thong
+  Date: 27/01/2024
+  Time: 4:37 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form:form modelAttribute="mailList" method="post" action="/service/edit">
-    Languages : <form:checkboxes path="languages" items="${lan}"/> <br>
-    <span>Page Size:Show </span> <form:checkboxes path="size" items="${page}"/> <span>emails per pages</span> <br>
+<form:form modelAttribute="mail" action="/service/createPost" method="post">
+    ID: <form:input path="id" type="number"/>
+    Languages:
+    <form:select path="languages" multiple="${false}">
+        <form:options items="${listLanguage}"/>
+    </form:select>
 
-    Signatire: <form:input path="signature"/> <br>
-    <button>EDIT</button>
+    size:
+    <form:select path="size" multiple="${false}">
+        <form:options items="${listSize}"/>
+    </form:select>
+    Spams_Fillter:
+    <form:input path="spams_Fillter" type="text"/>
+    signature:
+    <form:input path="signature" type="text"/>
+
+    <button>Update</button>
 </form:form>
 </body>
 </html>

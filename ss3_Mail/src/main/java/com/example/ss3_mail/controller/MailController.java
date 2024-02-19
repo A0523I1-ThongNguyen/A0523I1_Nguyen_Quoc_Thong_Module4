@@ -13,25 +13,52 @@ import java.util.ArrayList;
 public class MailController {
     @Autowired
     IMailSerice mailSerice;
-    @GetMapping(value ="/edit")
-    public String showFormEdit (@RequestParam int id, Model model, Mail mailList){
-        Mail findMail = mailSerice.findById(id);
-        model.addAttribute("mail",new Mail());
-        model.addAttribute("mailList", findMail);
-        model.addAttribute("lan", new String[]{"English","VietNamese","Chinaese","Japanese"});
-        model.addAttribute("page",new String []{"10","15","20","25","50","100"});
-        return "/create";
+    @ModelAttribute("listLanguage")
+    public String[] listLanguage() {
+        return new String[]{"English", "Vietnamese", "Japanese", ""};
     }
+    @ModelAttribute("listSize")
+    public String[] listSize(){
+        return new String[]{"1","5","20","100"};
+    }
+
     @GetMapping(value = "/show")
     public  ModelAndView showForm(){
         ArrayList<Mail> mailList = mailSerice.findAll();
         ModelAndView model12 = new ModelAndView("/list","mailList",mailList);
         return model12;
     }
-    @PostMapping(value = "/edit")
-    public String editForm(@ModelAttribute ("mailList") Mail mailList){
-        mailSerice.edit(mailList);
+
+    @GetMapping(value = "/createView")
+    public String createView(Model model){
+        model.addAttribute("mail",new Mail());
+        return "/create";
+    }
+    @PostMapping(value = "/createPost")
+    public String createPost(@ModelAttribute Mail mail){
+        mailSerice.add(mail);
         return "redirect:/service/show";
     }
 
+    @GetMapping("updateView")
+    public String viewEdit(@RequestParam int id , Model model){
+     Mail mail = mailSerice.findById(id);
+     model.addAttribute("mail",mail);
+     return "/update";
+    }
+    @PostMapping(value = "/updatePost")
+    public String updatePost(@ModelAttribute Mail mail){
+        mailSerice.edit(mail.getId(), mail);
+        return "redirect:/service/show";
+    }
+//    @PostMapping(value = "/updatePost")
+//    public String updatePost(@ModelAttribute Mail mail){
+//        mailSerice.editName(mail.getSpams_Fillter(), mail);
+//        return "redirect:/service/show";
+//    }
+    @GetMapping(value = "/delete")
+    public String delete(@RequestParam int id){
+        mailSerice.delete(id);
+        return "redirect:/service/show";
+    }
 }

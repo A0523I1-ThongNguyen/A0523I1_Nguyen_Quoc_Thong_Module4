@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/car/create-car-post}" method="post" th:object="${carDTO}">
+    Name Car:<input th:field="*{nameCar}">
+    <h4 style="color: red" th:if="${#fields.hasErrors('nameCar')}" th:errors="*{nameCar}"></h4>
+    Price: <input th:field="*{price}" type="number">
+    <h4 style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></h4>
+    Brand: <select th:field="*{knBrand}">
+    <option th:each="brand: ${listBrand}" th:value="${brand.idBrand}"
+            th:text="${brand.nameBrand  + ' / '+ brand.nameManufacture}"></option>
+</select>
+    <Button>Create</Button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/st/createPost}" method="post" th:object="${studentDTO}">
+    Name: <input th:field="*{name}" type="text">
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+    <select th:field="*{knFloor}">
+        <option th:each="fl: ${listFloor}" th:value="${fl.idFloor}" th:text="${fl.nameFloor}"></option>
+    </select>
+
+    <input type="submit">
+</form>
+
+
+</body>
+</html>

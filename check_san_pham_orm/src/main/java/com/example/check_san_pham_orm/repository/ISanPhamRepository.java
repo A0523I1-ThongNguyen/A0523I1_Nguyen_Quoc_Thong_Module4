@@ -10,5 +10,4 @@ public interface ISanPhamRepository {
     SanPham findById(int id);
     void update(SanPham sanPham , int id);
     void delete(int id);
-
 }

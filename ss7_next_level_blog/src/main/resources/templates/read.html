@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/bl/}">Back</a>
+
+<fieldset>
+    <legend th:text="${blog.category.type}">Blog</legend>
+    <table>
+        <tr>
+            <td>Tác Giả:</td>
+            <td th:text="${blog.author}"></td>
+        </tr>
+        <tr>
+            <td> Tiêu đề:</td>
+            <td th:text="${blog.title}"></td>
+        </tr>
+        <tr>
+            <td> Noi dung:</td>
+            <td th:text="${blog.content}"></td>
+        </tr>
+        <tr>
+            <td> Ngày Viết:</td>
+            <td th:text="${blog.dateOfWrite}"></td>
+        </tr>
+        <!--    <tr>-->
+        <!--      <td> The loai:</td>-->
+        <!--      <td th:text="${blog.category.type}"></td>-->
+        <!--    </tr>-->
+    </table>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/car/create-car-post}" method="post" th:object="${car}">
+    <input th:text="*{idCar}" type="hidden">
+    Name Car: <input th:field="*{nameCar}">
+    Price <input th:field="*{price}">
+    Brand: <select th:field="*{brand}" type="number">
+    <option th:each="brand: ${listBrand}" th:value="${brand.idBrand}" th:text="${brand.nameBrand  + ' / '+ brand.nameManufacture}"></option>
+</select>
+    <Button>Create</Button>
+</form>
+
+</body>
+</html>

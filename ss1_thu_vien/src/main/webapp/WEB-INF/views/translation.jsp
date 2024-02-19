@@ -25,7 +25,7 @@
             <td><input type="radio" name="e" value="vn">Anh-Viet</td>
         </tr>
         <tr>
-            <td>Enter word to tran</td>
+            <td>Enter word to tranlation</td>
             <td><input type="text" name="word"></td>
             <td><button type="submit">Dich</button></td>
         </tr>

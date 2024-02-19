@@ -8,5 +8,8 @@ public interface IMailSerice {
     ArrayList<Mail> findAll();
     void update(Mail mail);
     Mail findById(int id);
-    void edit(Mail student);
+    void edit(int id , Mail newMail);
+    void add(Mail mail);
+    void delete(int id);
+    public void editName(String name, Mail newMail);
 }

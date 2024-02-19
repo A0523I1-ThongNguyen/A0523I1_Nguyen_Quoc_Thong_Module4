@@ -31,19 +31,22 @@ public class StudentController {
         return iCodegymClassService.showList();
     }
 
+//    @{/(page=${list.number -1}
     @GetMapping("/")
     public ModelAndView showList(@RequestParam(defaultValue = "0",required = false) int page,
                                  @RequestParam(defaultValue = "3",required = false) int pageSize,
                                  Model model){
         Sort sort = Sort.by("name").ascending();
         Pageable pageable = PageRequest.of(page,4,sort);
-//        Page<Student> pageStudent = iStudentService.findAll(pageable);
-//        int size = pageStudent.getTotalPages();
-//        List<Integer> listPage = new ArrayList<>();
-//        for (int i = 1; i <= size ; i++) {
-//            listPage.add(i);
-//        }
-//        model.addAttribute("pages",listPage);
+        Page<Student> pageStudent = iStudentService.findAll(pageable);
+        int size = pageStudent.getTotalPages();
+        List<Integer> listPage = new ArrayList<>();
+        for (int i = 1; i <= size ; i++) {
+            listPage.add(i);
+        }
+        model.addAttribute("pages",listPage);
+
+        Page<Student> studentList = iStudentService.findAll(pageable);
         return new ModelAndView("/list", "list",iStudentService.findAll(pageable));
     }
 

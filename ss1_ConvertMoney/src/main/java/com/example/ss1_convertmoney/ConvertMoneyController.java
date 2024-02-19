@@ -16,7 +16,7 @@ public class ConvertMoneyController {
     }
 
     @PostMapping(value = "/money")
-    public String chuyenDoi(@RequestParam String e, int money, Model model) {
+    public String chuyenDoi(@RequestParam (required = false) String e, int money, Model model) {
         int cd = 0;
         String kq = "";
         if (e.equals("usd")) {

@@ -5,11 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<form th:object="${sanPham}" method="post" th:action="@{/sp/updatePost}">
-    <input th:field="*{id}" type="hidden">
-    name: <input th:field="*{name}" type="text">
-    price: <input th:field="*{price}" type="text">
-    <input type="submit" value="Update">
+<form th:object="${product}" th:action="@{/sp/updatePost}" method="post">
+  ID: <input type="text" th:field="*{id}" readonly>
+  Name Product: <input type="text" th:field="*{name}" required>
+  price: <input type="text" th:field="*{price}" required>
+  description: <input type="text" th:field="*{description}" required>
+  manufacture: <input type="text" th:field="*{manufacture}" required>
+
+    <input type="submit">Update
 </form>
 </body>
 </html>

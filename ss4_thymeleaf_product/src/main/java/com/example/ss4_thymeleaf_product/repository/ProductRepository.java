@@ -14,7 +14,9 @@ public class ProductRepository implements IProductRepository {
         listProduct.add(new Product(1, "keo", 5000, "ngot", "bibica"));
         listProduct.add(new Product(2, "banh", 8000, "trung", "baongoc"));
         listProduct.add(new Product(3, "coca", 10000, "co gas", "cocacola"));
-        listProduct.add(new Product(3, "coca", 10000, "co gas", "cocacola"));
+        listProduct.add(new Product(4, "coca", 8000, "co gas", "cocacola"));
+        listProduct.add(new Product(4,"sting",11000,"dau","vn"));
+
     }
 
 
@@ -40,8 +42,8 @@ public class ProductRepository implements IProductRepository {
     @Override
     public void update(int id, Product product) {
         for (int i = 0; i < listProduct.size(); i++) {
-            if (listProduct.get(i).getId() == id) {
-                listProduct.set(i, product);
+            if (listProduct.get(i).getId() == id) { // get đối tượng index 0 lấy id 1 ra == id
+                listProduct.set(i, product); // set tại index i bằng product mới
             }
         }
     }
@@ -53,18 +55,29 @@ public class ProductRepository implements IProductRepository {
                 return listProduct.get(i);
             }
         }
-
         return null;
     }
+
 
     @Override
     public List<Product> listSearch(String name) {
         List<Product> listSearch = new ArrayList<>();
-        for (int i = 0; i < listProduct.size();i++){
-            if (listProduct.get(i).getName().equals(name)){
-                listSearch.add(listProduct.get(i));
+      for (Product productFound : listProduct){
+          if (productFound.getName().equalsIgnoreCase(name)){
+              listSearch.add(productFound);
+          }
+      }
+        return listSearch;
+    }
+
+    @Override
+    public List<Product> listSearch2(String name){
+        List<Product> listSearch2 = new ArrayList<>();
+        for (int i = 0; i <listProduct.size();i++){
+            if (listProduct.get(i).getName().equalsIgnoreCase(name)){
+                listSearch2.add(listProduct.get(i));
             }
         }
-        return listSearch;
+        return listSearch2;
     }
 }

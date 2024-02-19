@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/music/updatePost}" method="post" th:object="${musicDTO}">
+    ID: <input type="text" th:field="*{idMusic}">
+    nameSong: <input type="text" th:field="*{nameSong}">
+    <small style="color: red" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></small>
+    singer: <input type="text" th:field="*{singer}">
+    <small style="color: red" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></small>
+    view: <input type="text" th:field="*{view}">
+    file: <input type="text" th:field="*{file}">
+    knType:<select th:field="*{knType}">
+    <option th:each="type:${listType}" th:value="${type.idType}" th:text="${type.nameType}"></option>
+<!--giá trị phụ thuộc vào ${type.idType} gắn vào th:field="*{knType}" để dựa vào *{knType} tìm khóa chính ở bảng Type đặt
+                                                            vào làm khóa ngoại của 1 record ở csdl (1 object của lớp Music)>-->
+</select>
+<!-- // lấy ra đối tượng cần update dựa vào khóa chính id của Music từ view list
+        //nếu bạn truyền giá trị 2 từ controller vào th:field="*{knType}", thì trong <select>, các <option>
+        // có thuộc tính value được thiết lập bằng ${type.idType} sẽ có giá trị tương ứng là 2.-->
+    <button>Create Music</button>
+</form>
+</body>
+</html>

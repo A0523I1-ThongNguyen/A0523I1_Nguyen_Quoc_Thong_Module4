@@ -5,19 +5,30 @@
     <title>Title</title>
 </head>
 <body>
+<a th:href="@{/ct/viewCreate}">Create</a>
 <table border="2px">
     <tr>
         <th>STT</th>
         <th>name</th>
-        <th>So Dan </th>
+        <th>So Dan</th>
         <th>Thuoc Quoc gia</th>
+        <th>Delete</th>
     </tr>
+<!--Đúng, giải thích ngắn gọn nhất như sau:
 
+ct là một bản ghi (record) trong bảng City.
+ct.nation là truy cập vào khóa ngoại (nation_id) của bản ghi ct trong bảng City, tham chiếu đến khóa chính (id) của bảng Nation.
+ct.nation.name là truy cập vào trường name của bản ghi Nation tương ứng với khóa chính mà ct.nation đang tham chiếu đến.
+Tóm lại, ct.nation.name truy cập vào trường name trong bảng Nation, thông qua quan hệ khóa ngoại trong bảng City,
+ để lấy giá trị tương ứng với bản ghi Nation mà bản ghi City đang tham chiếu đến.-->
     <tr th:each="ct,loop : ${list}">
         <td th:text="${loop.count}"></td>
         <td th:text="${ct.name}"></td>
         <td th:text="${ct.soDan}"></td>
         <td th:text="${ct.nation.name}"></td>
+        <td>
+            <a th:href="@{/ct/delete(id=${ct.id})}">Delete</a>
+        </td>
     </tr>
 </table>
 </body>

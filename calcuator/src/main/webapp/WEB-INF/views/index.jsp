@@ -19,8 +19,8 @@
                 <button type="submit" name="e" value="subtraction">subtraction</button>
             </td>
             <td>
-                <button type="submit" name="e" value="multiplication">multiplication</button>
-                <button type="submit" name="e" value="division">division</button>
+                <input type="submit" name="e" value="multiplication"></input>
+                <input type="submit" name="e" value="division"></input>
             </td>
         </tr>
     </table>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form th:action="@{/car/create-brand-post}" method="post" th:object="${brand}">
+                <input th:field="*{idBrand}" type="hidden">
+        Brand: <input th:field="*{nameBrand}">
+        Name Manufacture: <input th:field="*{nameManufacture}">
+
+        <Button>Create</Button>
+    </form>
+
+</body>
+</html>

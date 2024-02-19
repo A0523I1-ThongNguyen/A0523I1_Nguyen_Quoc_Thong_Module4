@@ -13,6 +13,8 @@ import java.util.List;
 
 public interface IBlogRepository extends JpaRepository<Blog,Integer> {
     Page<Blog> findByTitleContaining(Pageable pageable,String searchTitle);
+
     @Query(value = "select * from Blog  where category_id = :categoryId", nativeQuery = true)
     Page<Blog> showListCategoryId(Pageable pageable,@Param("categoryId") int categoryId);
+
 }

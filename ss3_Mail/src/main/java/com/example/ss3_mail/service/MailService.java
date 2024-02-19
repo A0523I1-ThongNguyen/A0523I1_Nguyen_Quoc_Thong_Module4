@@ -22,10 +22,25 @@ public class MailService implements IMailSerice{
     public Mail findById(int id){
         return mailRepository.findById(id);
     }
-    public  void edit(Mail student){
-        mailRepository.edit(student);
+
+    @Override
+    public void edit(int id, Mail newMail) {
+        mailRepository.edit(id,newMail);
     }
 
+    @Override
+    public void add(Mail mail) {
+        mailRepository.add(mail);
+    }
+
+    @Override
+    public void delete(int id) {
+        mailRepository.delete(id);
+    }
+
+    public void editName(String name, Mail newMail){
+        mailRepository.editName(name,newMail);
+    }
 
 //    public void update(Mail mail) {
 //        mailRepository.update(mail);

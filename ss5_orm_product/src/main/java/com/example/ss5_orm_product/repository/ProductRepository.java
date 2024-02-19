@@ -20,7 +20,8 @@ public class ProductRepository implements IProductRepository {
     public List<Product> findAll() {
         String sql = "select p from Product p";
         TypedQuery<Product> query = entityManager.createQuery(sql,Product.class);
-        return query.getResultList();
+        List<Product> listProduct = query.getResultList();
+        return listProduct;
     }
 
     @Override
@@ -44,6 +45,4 @@ public class ProductRepository implements IProductRepository {
         BeanUtils.copyProperties(newProduct,productUp);
         entityManager.merge(productUp);
     }
-
-
 }

@@ -13,10 +13,12 @@
     <title>Title</title>
 </head>
 <body>
-<form:form modelAttribute="findMail" action="/email/postcreate" method="post">
+<form:form modelAttribute="findMail" action="/email/updatePost" method="post">
+    ID: <form:input path="id" type="number"/>
     Languages: <form:select path="langueges" multiple="${false}">
     <form:options items="${listLanguage}"/>
 </form:select>
+
 
     Size: <form:select path="size" multiple="${false}">
     <form:options items="${listSize}"/>
@@ -24,9 +26,12 @@
 
 
     Spam <form:input path="spam" type="number"/>
+
     Signature : <form:input path="signature" type="text"/>
 
     <input type="submit" value="Submit">Edit
 </form:form>
+
+
 </body>
 </html>

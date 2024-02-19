@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<form th:action="@{/book/create-book}" method="post" th:object="${book}">
+    Name Book<input th:field="*{nameBook}">
+    <small style="color: red" th:if="${#fields.hasErrors('nameBook')}" th:errors="*{nameBook}"></small>
+    Quantity: <input th:field="*{quantityBook}">
+<!--    Type: <input th:field="*{typeBook}" type="number">-->
+    <button>Create</button>
+</form>
+</body>
+</html>

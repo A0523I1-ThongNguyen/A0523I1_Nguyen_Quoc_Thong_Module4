@@ -59,8 +59,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public List<Product> search(String productName) {
         List<Product> productList = new ArrayList<>();
-        for (Product product : list
-        ) {
+        for (Product product : list) {
             if (product.getProductName().equalsIgnoreCase(productName)) {
                 productList.add(product);
             }

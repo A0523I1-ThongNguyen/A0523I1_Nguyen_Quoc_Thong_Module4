@@ -20,7 +20,6 @@ public class StudentService implements IStudentService{
         iStudentRepository.save(student);
     }
 
-
     @Override
     public void delAll() {
         iStudentRepository.deleteAll();

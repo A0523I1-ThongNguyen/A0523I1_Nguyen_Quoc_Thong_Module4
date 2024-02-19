@@ -19,18 +19,16 @@ public class SandwichController {
     }
 
     @PostMapping(value = "/post")
-    public String handleSandwich(@RequestParam( name = "e" ,required = false , defaultValue = "No Choose") String[] t,
-                                 @RequestParam( name = "z",required = false , defaultValue = "No Choose") String[] z ,Model model) {
-            String listSand[] =t;
-        model.addAttribute("listSand", listSand);
+    public String handleSandwich(@RequestParam(name = "e", required = false, defaultValue = "No Choose") String e,
+                                 @RequestParam(name = "z", required = false, defaultValue = "No Choose") String z, Model model) {
+//        String listSand[] = t; // Or send t&z
+        model.addAttribute("listSand", e);
 
-        String listIdol[] = z;
-        model.addAttribute("listIdol", listIdol);
+//        String listIdol[] = z;
+//        model.addAttribute("listIdol", z);
 
         return "/list";
     }
 
-    // public String save(@RequestParam(name = "e", required = false, defaultValue = "No Choose") String[] e, Model model) {
-    //        model.addAttribute("e", e);
-    //        return "listSandwich";
+
 }

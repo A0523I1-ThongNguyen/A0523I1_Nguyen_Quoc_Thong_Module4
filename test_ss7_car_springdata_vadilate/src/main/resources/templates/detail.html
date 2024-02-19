@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<a th:href="@{/bl/}">Back</a>
+
+<fieldset>
+  <legend th:text="${carDetail.idCar}">Blog</legend>
+  <table>
+    <tr>
+      <td>Name Car:</td>
+      <td th:text="${carDetail.nameCar}"></td>
+    </tr>
+    <tr>
+      <td> Price:</td>
+      <td th:text="${carDetail.price}"></td>
+    </tr>
+    <tr>
+      <td> Brand:</td>
+      <td th:text="${carDetail.brand.nameBrand}"></td>
+    </tr>
+    <tr>
+      <td> Manufacture:</td>
+      <td th:text="${carDetail.brand.nameManufacture}"></td>
+    </tr>
+    <!--    <tr>-->
+    <!--      <td> The loai:</td>-->
+    <!--      <td th:text="${blog.category.type}"></td>-->
+    <!--    </tr>-->
+  </table>
+</fieldset>
+</body>
+</html>

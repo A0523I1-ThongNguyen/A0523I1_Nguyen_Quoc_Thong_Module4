@@ -61,6 +61,7 @@
     <th>ID</th>
     <th>Tiêu đề</th>
     <th>Tác giả</th>
+    <th>Type</th>
     <th>Đọc</th>
     <th>Cập nhật</th>
     <th>Xóa</th>
@@ -71,6 +72,7 @@
     <td th:text="${blog.title}"></td>
     <td th:text="${blog.author}"></td>
     <td th:text="${blog.date}"></td>
+    <td th:text="${blog.category.type}"></td>
     <td><a th:href="@{/blog/read/__${blog.id}__}" class="btn btn-outline-success" role="button">Read</a></td>
     <td><a th:href="@{/blog/update(id=${blog.id})}" class="btn btn-outline-warning" role="button">Update</a></td>
     <td><a th:href="@{/blog/delete/__${blog.id}__}" class="btn btn-outline-danger" role="button">Delete</a></td>

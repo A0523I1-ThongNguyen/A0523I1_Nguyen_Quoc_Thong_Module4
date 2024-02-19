@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/bl/viewCreate}">Add</a>
+<table border="2px soild">
+    <tr>
+        <th>STT</th>
+        <th>Author</th>
+        <th>tittle</th>
+        <th>writeDate</th>
+        <th>Read</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr th:each="blog , loop:${listBlog}">
+            <td th:text="${loop.count}"></td>
+            <td th:text="${blog.author}"></td>
+            <td th:text="${blog.tittle}"></td>
+            <td th:text="${blog.writeDate}"></td>
+        <td><a th:href="@{/bl/read/__${blog.id}__}">Read</a></td>
+        <td><a th:href="@{/bl/update(id=${blog.id})}">update</a></td>
+        <td><a th:href="@{/bl/delete(id=${blog.id})}">delete</a></td>
+
+    </tr>
+</table>
+
+<div class="text-center">
+    <a th:href="@{/bl(page=${listBlog.number -1})}" th:if="${listBlog.hasPrevious()}">Lui Trang</a>
+    <span th:text="${listBlog.number + 1}"></span> / <span th:text="${listBlog.totalPages}"></span>
+
+    <a th:href="@{/bl(page=${listBlog.number + 1})}" th:if="${listBlog.hasNext()}">Tiep Theo</a>
+
+
+</div>
+</body>
+</html>

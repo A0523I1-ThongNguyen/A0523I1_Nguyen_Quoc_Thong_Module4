@@ -31,7 +31,7 @@ public class EmailRepository implements IEmailRepository {
         Email findEmail = null;
         for (int i = 0; i < listEmail.size(); i++) {
             if (listEmail.get(i).getId() == id) {
-                findEmail = listEmail.get(i) ;
+                findEmail = listEmail.get(i);
             }
         }
         return findEmail;
@@ -45,4 +45,14 @@ public class EmailRepository implements IEmailRepository {
             }
         }
     }
+
+    @Override
+    public void update(int id, Email email) {
+        for (int i = 0; i < listEmail.size(); i++){
+            if (listEmail.get(i).getId()==id){
+                listEmail.set(id,email);
+            }
+        }
+    }
 }
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${cityDTO}" th:action="@{/ct/createPost}" method="post">
+
+    Name:<input th:field="*{name}" type="text">
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+    So Dan:<input th:field="*{soDan}" type="text">
+    Nation:
+    <select th:field="*{nation}">
+            <option th:each="na : ${listNation}" th:value="${na.id}" th:text="${na.name}"></option>
+    </select>
+
+    <input type="submit" value="Create">
+</form>
+
+
+</body>
+</html>

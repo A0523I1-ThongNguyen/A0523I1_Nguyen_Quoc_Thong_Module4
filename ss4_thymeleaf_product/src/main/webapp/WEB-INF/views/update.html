@@ -6,7 +6,7 @@
 </head>
 <body>
 <form th:object="${product}" th:action="@{/pro/postUpdate}" method="post">
-    ID:<input class="form-control" type="text" th:field="*{id}" readonly>
+    ID:<input class="form-control" type="text" th:field="*{id}" required>
 
     Name:<input class="form-control" type="text" th:field="*{name}" required>
     Price:<input class="form-control" type="text" th:field="*{price}" required>

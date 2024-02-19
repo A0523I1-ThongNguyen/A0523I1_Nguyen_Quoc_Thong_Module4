@@ -5,5 +5,5 @@ import com.example.springboot1.model.CodegymClass;
 import java.util.List;
 
 public interface ICodegymClassService {
-    List<CodegymClass> showList();
+        List<CodegymClass> showList();
 }

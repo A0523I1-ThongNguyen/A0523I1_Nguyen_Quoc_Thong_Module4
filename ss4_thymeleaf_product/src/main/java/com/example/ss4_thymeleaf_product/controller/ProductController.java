@@ -62,22 +62,41 @@ public class ProductController {
         return "/update";
     }
 
+
+    @GetMapping("update2/{ok}")
+    public String showViewUpdate2(@PathVariable int ok, Model model) {
+        Product product = productService.findById(ok);
+        model.addAttribute("product", product);
+        return "/update";
+    }
+
     @PostMapping("/postUpdate")
-    public String postUpdate(@ModelAttribute Product product){
-            productService.update(product.getId(),product);
-            return "redirect:/pro";
+    public String postUpdate(@ModelAttribute Product product) {
+        productService.update(product.getId(), product);
+        return "redirect:/pro";
     }
 
     @PostMapping("/search")
-    public String search(@RequestParam String search, Model model , RedirectAttributes redirectAttributes){
+    public String search(@RequestParam String search, Model model, RedirectAttributes redirectAttributes) {
         List<Product> listProduct = productService.listSearch(search);
         if (listProduct.size() > 0) {
             model.addAttribute("listProduct", listProduct);
             return "/list";
-        }
-        else {
-            redirectAttributes.addFlashAttribute("notfind","Not product on list");
+        } else {
+            redirectAttributes.addFlashAttribute("notfind", "Not product on list");
             return "redirect:/pro";
+        }
+    }
+
+    @GetMapping("/search2")
+    public String search2(@RequestParam String search2, Model model, RedirectAttributes redirectAttributes) {
+        List<Product> listSearch2 = productService.listSearch2(search2);
+        if (listSearch2.size() == 0) {
+            redirectAttributes.addFlashAttribute("notfind2", "No Product Found");
+            return "redirect:/pro";
+        } else {
+            model.addAttribute("listProduct", listSearch2);
+            return "/list";
         }
     }
 }

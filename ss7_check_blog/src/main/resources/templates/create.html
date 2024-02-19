@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/check/createPost}" method="post" th:object="${blog}">
+    ID:
+    Tac gia : <input th:field="*{tacGia}">
+    Noi Dung : <input th:field="*{noiDung}">
+    The Loai : <select th:field="*{style}">
+    <option th:each="sty : ${listStyle}"  th:value="${sty.idStyle}" th:text="${sty.theLoai}"></option>
+</select>
+
+    <input type="submit">
+</form>
+</body>
+</html>

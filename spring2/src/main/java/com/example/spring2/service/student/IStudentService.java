@@ -10,5 +10,6 @@ public interface IStudentService {
     //    List<Student> showList();
     Page<Student> findAll(Pageable pageable);
 
+
     void addNewStudent(Student student);
 }

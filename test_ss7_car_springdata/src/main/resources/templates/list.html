@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/car/create-brand-view}">Create Brand</a>
+<a th:href="@{/car/create-car-view}">Create Car</a>
+<table border="2px">
+        <tr>
+            <th>idCar</th>
+            <th>Name Car</th>
+            <th>Price Car</th>
+            <th>Name Brand</th>
+            <th>Name Manufacture</th>
+            <th style="color: rebeccapurple">detail</th>
+            <th style="color:red;">Delete</th>
+            <th style="color: blue">Update</th>
+        </tr>
+
+        <tr th:each="car , loop: ${carPage}">
+            <td th:text="${car.idCar}"></td>
+            <td th:text="${car.nameCar}"></td>
+            <td th:text="${car.price}"></td>
+            <td th:text="${car.brand.getNameBrand()}"></td>
+            <td th:text="${car.brand.getNameManufacture()}"></td>
+            <td><a th:href="@{car/detail(id=${car.getIdCar()})}">detail</a></td>
+           <td><a th:href="@{car/delete(id=${car.getIdCar()})}">Delete</a></td>
+           <td><a th:href="@{car/update(id=${car.getIdCar()})}">Update</a></td>
+
+        </tr>
+
+</table>
+
+<a th:href="@{/car(page=${carPage.number - 1})}" th:if="${carPage.hasPrevious()}">Back</a>
+<span th:text="${carPage.number+1}"></span> / <span th:text="${carPage.totalPages}"></span>
+<a th:href="@{/car(page=${carPage.number + 1})}" th:if="${carPage.hasNext()}">Next</a>
+
+<table border="2px" style="margin-top: 10px">
+    <tr>
+        <th>idBrand</th>
+        <th>Brand</th>
+        <th>Manufacture</th>
+    </tr>
+    <tr th:each="brand , loop: ${brandList}">
+        <td th:text="${brand.idBrand}"></td>
+        <td th:text="${brand.nameBrand}"></td>
+        <td th:text="${brand.nameManufacture}"></td>
+    </tr>
+</table>
+</body>
+</html>

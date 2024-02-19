@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/em/create}">ADD</a>
+<table border="2px">
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Deparment</th>
+      <th>Delete</th>
+    </tr>
+  <tr th:each="em,loop : ${employeePage}">
+      <td th:text="${loop.count}"></td>
+    <td th:text="${em.nameEm}"></td>
+    <td th:text="${em.age}"></td>
+    <td th:text="${em.salary}"></td>
+    <td th:text="${em.knDepartment.nameDepartment}"></td>
+    <td><a th:href="@{/em/delete(id=${em.getIdEmployee()})}">Delete</a></td>
+<!--                             ?query parameter ( id là tên của key và em.getIdEmployee() là giá trị tương ứng của key.) -->
+  </tr>
+</table>
+<a th:href="@{/em(page=${employeePage.number - 1})}" th:if="${employeePage.hasPrevious()}">Back</a>
+<span th:text="${employeePage.number + 1}"></span>/  <span th:text="${employeePage.totalPages}"></span>
+<a th:href="@{/em(page=${employeePage.number + 1})}" th:if="${employeePage.hasNext()}">Next</a>
+</body>
+</html>

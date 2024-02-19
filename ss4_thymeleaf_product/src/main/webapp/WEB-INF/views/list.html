@@ -11,13 +11,22 @@
            aria-label="Search" name="search">
     <button type="submit" class="btn btn-outline-light me-2" style="margin-left: 10px">Search</button>
 </form>
+
+<form th:action="@{/pro/search2}" method="get" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+      style="display: flex ; margin-top: 10px">
+    <input type="text" style="" class="form-control form-control-dark" placeholder="Search2..."
+           aria-label="Search" name="search2">
+    <button type="submit" class="btn btn-outline-light me-2"  style="color: blue;margin-left: 10px">Search</button>
+</form>
+
 <a th:href="@{/pro/create}">Add</a>
 <div style="text-align:center;color: red" th:if="${notfind}">
     <span th:text="${notfind}"></span>
 </div>
+<h1 style="text-align: center" th:text="${notfind2}"></h1>
 <table border="2px">
     <tr>
-        <th>STT</th>
+        <th>ID</th>
         <th>Name</th>
         <th>Price</th>
         <th>Description</th>
@@ -25,9 +34,10 @@
         <th>Delete</th>
         <th>Xem chi tiết</th>
         <th>Update</th>
+        <th>Update2</th>
     </tr>
     <tr th:each="pro , loop : ${listProduct}">
-        <td th:text="${loop.count}"></td>
+        <td th:text="${pro.id}"></td>
         <td th:text="${pro.name}"></td>
         <td th:text="${pro.price}"></td>
         <td th:text="${pro.description}"></td>
@@ -38,6 +48,7 @@
         <td><a th:href="@{/pro/chitiet(id=${pro.getId()})}" class="btn btn-outline-success">Xem chi tiết</a></td>
 
        <td><a th:href="@{/pro/update/__${pro.getId()}__}" class="btn btn-outline-warning">Update</a></td>
+       <td><a th:href="@{/pro/update2/__${pro.getId()}__}" class="btn btn-outline-warning">Update2</a></td>
 
     </tr>
 </table>

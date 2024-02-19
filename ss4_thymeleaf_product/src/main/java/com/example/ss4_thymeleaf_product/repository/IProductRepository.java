@@ -15,4 +15,5 @@ public interface IProductRepository {
     Product findById(int id);
 
     List<Product> listSearch(String name);
+    public List<Product> listSearch2(String name);
 }

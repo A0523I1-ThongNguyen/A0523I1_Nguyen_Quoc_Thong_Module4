@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
+<a href="/service/createView?id=${mail.getId()}">ADD</a>
 <table>
     <tr>
         <td>Id</td>
@@ -24,11 +25,12 @@
         <td>Size</td>
         <td>Spams_Fillter</td>
         <td>signature</td>
-        <td>edit</td>
+        <td style="color: rebeccapurple">UPDATE</td>
+        <td style="color: red">DELETE</td>
     </tr>
     <c:forEach items="${mailList}" var="mail" varStatus="loop">
         <tr>
-            <td>${mail.getId()}</td>
+            <td>${mail.id}</td>
             <td>
                 <c:forEach items="${mail.getLanguages()}" var="lan">
                 <span><c:out value="${lan}"/></span>
@@ -38,15 +40,17 @@
                     <span><c:out value="${sizeOf}"/></span>
                 </c:forEach>
             </td>
-            <td>${mail.getSpams_Fillter()}</td>
+            <td>${mail.spams_Fillter}</td>
             <td>
-
                 <c:forEach items="${mail.getSignature()}" var="signa">
                     <span><c:out value="${signa}"/></span>
 
                 </c:forEach>
             </td>
-            <td><a href="/service/edit?id=${mail.getId()}">EDIT</a></td>
+            <td><a href="/service/updateView?id=${mail.getId()}">EDIT</a></td>
+            <td><a href="/service/delete?id=${mail.getId()}">DELETE</a></td>
+<%--            <td><a href="/service/updateName?name=${mail.getSpams_Fillter()}">DELETE</a></td>--%>
+
         </tr>
     </c:forEach>
 </table>

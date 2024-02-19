@@ -1,10 +1,10 @@
 package com.example.ss3_mail.model;
 
 public class Mail {
-    int id;
+    private int id;
     private String[] languages;
     private String [] size;
-    private String Spams_Fillter;
+    private String spams_Fillter;
     private String [] signature;
 
     public Mail() {
@@ -13,7 +13,7 @@ public class Mail {
     public Mail(String[] languages, String[] size, String spams_Fillter, String[] signature) {
         this.languages = languages;
         this.size = size;
-        this.Spams_Fillter = spams_Fillter;
+        this.spams_Fillter = spams_Fillter;
         this.signature = signature;
     }
 
@@ -21,7 +21,7 @@ public class Mail {
         this.id = id;
         this.languages = languages;
         this.size = size;
-        this.Spams_Fillter = spams_Fillter;
+        this.spams_Fillter = spams_Fillter;
         this.signature = signature;
     }
 
@@ -50,7 +50,11 @@ public class Mail {
     }
 
     public String getSpams_Fillter() {
-        return Spams_Fillter;
+        return spams_Fillter;
+    }
+
+    public void setSpams_Fillter(String spams_Fillter) {
+        this.spams_Fillter = spams_Fillter;
     }
 
     public String[] getSignature() {

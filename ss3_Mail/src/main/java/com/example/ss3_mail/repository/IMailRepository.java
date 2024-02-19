@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public interface IMailRepository {
     ArrayList<Mail> findAll();
     Mail findById(int id);
-    void edit(Mail student);
+    void edit(int id , Mail mail );
+    void add(Mail mail);
+    void delete(int id);
+    public void editName(String name, Mail newMail);
 }
 

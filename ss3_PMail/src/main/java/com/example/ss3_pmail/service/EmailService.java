@@ -31,5 +31,10 @@ public class EmailService implements IEmailService{
         repository.delete(id);
     }
 
+    @Override
+    public void update(int id, Email email) {
+        repository.update(id,email);
+    }
+
 
 }

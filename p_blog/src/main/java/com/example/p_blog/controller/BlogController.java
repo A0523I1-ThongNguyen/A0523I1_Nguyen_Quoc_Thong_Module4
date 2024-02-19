@@ -26,7 +26,7 @@ public class BlogController {
 
     @GetMapping("")
     public String showListBlog(Model model, @RequestParam(defaultValue = "",required = false) String search,
-                               @PageableDefault(page = 0,size = 1,sort = "date",direction = Sort.Direction.ASC) Pageable pageable) {
+                               @PageableDefault(page = 0,size = 3,sort = "date",direction = Sort.Direction.ASC) Pageable pageable) {
         Page<Blog> list = iBlogService.findAll(pageable,search);
         List<Category> listCategory = iCategoryService.listCategory();
         model.addAttribute("listCategory", listCategory);
@@ -80,7 +80,7 @@ public class BlogController {
         return "redirect:/blog";
     }
     @GetMapping("/category/{categoryId}")
-    public String showCategory(@PageableDefault(page = 0,size = 2) Pageable pageable,@PathVariable int categoryId,Model model) {
+    public String showCategory(@PageableDefault(page = 0,size = 1) Pageable pageable,@PathVariable int categoryId,Model model) {
         Page<Blog> blogOfCategory = iBlogService.showListCategoryOfBlog(pageable,categoryId);
         List<Category> listCategory = iCategoryService.listCategory();
         model.addAttribute("listCategory", listCategory);

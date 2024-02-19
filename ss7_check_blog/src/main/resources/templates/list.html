@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/check/create}">Add</a>
+<table border="2px">
+    <tr>
+        <th>IdBlog</th>
+        <th>Tac Gia</th>
+        <th>Noi dung</th>
+        <th>The loai</th>
+    </tr>
+
+    <tr th:each="e , loop: ${listPageBlog}">
+        <td th:text="${e.idBlog}"></td>
+        <td th:text="${e.tacGia}"></td>
+        <td th:text="${e.noiDung}"></td>
+        <td th:text="${e.style.theLoai}"></td>
+    </tr>
+</table>
+
+<div>
+    <a th:href="@{/check(page = ${listPageBlog.number -1})}" th:if="${listPageBlog.hasPrevious()}">Back</a>
+    <span th:text="${listPageBlog.number + 1}"></span> / <span th:text="${listPageBlog.totalPages}"></span>
+    <a th:href="@{/check(page=${listPageBlog.number + 1})}" th:if="${listPageBlog.hasNext()}">Next</a>
+</div>
+</body>
+</html>

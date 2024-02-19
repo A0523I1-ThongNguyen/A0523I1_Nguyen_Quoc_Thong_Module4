@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/book/tra-sach}" method="post" th:object="${personX}">
+  Nhập mã trả sách : <input th:field="*{idPerson}" type="number">
+    <small style="color: red" th:if="${#fields.hasErrors('idPerson')}" th:errors="*{idPerson}"></small>
+    <small style="color: red" th:if="${error}" th:text="${error}"></small>
+
+    ten nguoi tra : <input th:field="*{namePerson}" type="text">
+    <button>Trả Sách</button>
+</form>
+</body>
+</html>

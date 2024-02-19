@@ -2,15 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create</title>
 </head>
 <body>
-<form th:action="@{/sp/createPost}" method="post" th:object="${sanPham}">
-    <input type="hidden" th:field="*{id}"/>
-    name: <input type="text" th:field="*{name}"/>
-    price: <input type="text" th:field="*{price}"/>
+<form th:action="@{/sp/createPost}" method="post" th:object="${product}">
+    Name Product: <input type="text" th:field="*{name}">
+    price: <input type="text" th:field="*{price}">
+    description: <input type="text" th:field="*{description}">
+    manufacture: <input type="text" th:field="*{manufacture}">
 
-    <input type="submit"/>
+    <input type="submit">
 </form>
 </body>
 </html>

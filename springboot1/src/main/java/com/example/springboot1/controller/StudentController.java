@@ -35,6 +35,13 @@ public class StudentController {
     public ModelAndView showFormCreate() {
         return new ModelAndView("/create", "student", new Student());
     }
+//    @GetMapping("/show-form-create")
+//    public String showFormCreate(Model model) {
+//        model.addAttribute("student",new Student());
+//        model.addAttribute("listClass",iCodegymClassService.showList());
+//        return "/create";
+////        return new ModelAndView("/create", "student", new Student());
+//    }
 
     @PostMapping("/add")
     public String addNewStudent(Student student) {

@@ -9,4 +9,5 @@ public interface IEmailRepository {
     void save(Email email);
     Email findById(int id);
     void delete(int id);
+    void update(int id, Email email);
 }
