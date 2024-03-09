@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/all/updatePost}" method="post" th:object="${employeeDTO}">
+    Id Employee:    <input type="text" th:field="*{idEm}">
+    Name Employee:  <input type="text" th:field="*{nameEm}">
+    <p th:if="${#fields.hasErrors('nameEm')}" th:errors="*{nameEm}"></p>
+    Age:  <input type="text" th:field="*{ageEm}">
+    Salary:  <input type="text" th:field="*{salary}">
+    Name Company:  <select type="text" th:field="*{fkCompany}">
+    <option th:each="company : ${listCompany}" th:value="${company.idCompany}" th:text="${company.nameCompany}"></option>
+</select>
+    <button>Update</button>
+</form>
+</body>
+</html>

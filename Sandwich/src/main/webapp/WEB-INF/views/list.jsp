@@ -11,26 +11,29 @@
 <head>
     <title>List Sandwich</title>
 </head>
-<hr>
+
 <form action="/sandwich/post" method="post">
-<h1>Sandwich Condiments</h1>
-<tr>
-  <td>lettuce<input type="checkbox" name="e" value="lettuce"></td>
-  <td>tomato<input type="checkbox" name="e" value="tomato"></td>
-  <td>mustard<input type="checkbox" name="e" value="mustard"></td>
-  <td>sprouts<input type="checkbox" name="e" value="sprouts"></td>
-</tr>
-  <td>GD<input type="checkbox" name="e" value="GD"></td>
-  <td>Sehun<input type="checkbox" name="e" value="Sehun"></td>
-  <td>Eunji<input type="checkbox" name="e" value="Eunji"></td>
-  <td>Irene<input type="checkbox" name="e" value="Irene"></td>
-</hr>
-<tr>
-  <button type="submit">Save</button>
-</tr>
+    <h1>Sandwich Condiments</h1>
+    <div style="display: block">
+        <tr>
+            <td>lettuce<input type="checkbox" name="e" value="lettuce"></td>
+            <td>tomato<input type="checkbox" name="e" value="tomato"></td>
+            <td>mustard<input type="checkbox" name="e" value="mustard"></td>
+            <td>sprouts<input type="checkbox" name="e" value="sprouts"></td>
+        </tr>
+    </div>
+    <div style="display: block">
+        <td>GD<input type="checkbox" name="e" value="GD"></td>
+        <td>Sehun<input type="checkbox" name="e" value="Sehun"></td>
+        <td>Eunji<input type="checkbox" name="e" value="Eunji"></td>
+        <td>Irene<input type="checkbox" name="e" value="Irene"></td>
+    </div>
+
+    <button type="submit">Save</button>
+
 </form>
 <c:forEach items="${listSand}" var="item">
-  <p><c:out value="${item}"/></p>
+    <p><c:out value="${item}"/></p>
 </c:forEach>
 <%--<c:forEach items="${listIdol}" var="item">--%>
 <%--  <p><c:out value="${item}"/></p>--%>

@@ -19,9 +19,9 @@ public class SandwichController {
     }
 
     @PostMapping(value = "/post")
-    public String handleSandwich(@RequestParam(name = "e", required = false, defaultValue = "No Choose") String e,
+    public String handleSandwich(@RequestParam(name = "e", required = false, defaultValue = "No Choose") String[] e,
                                  @RequestParam(name = "z", required = false, defaultValue = "No Choose") String z, Model model) {
-//        String listSand[] = t; // Or send t&z
+//        String listSand[] = e; // Or send e&z
         model.addAttribute("listSand", e);
 
 //        String listIdol[] = z;

@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
+
 @Service
 public class CarService implements ICarService {
     @Autowired
@@ -43,6 +45,13 @@ public class CarService implements ICarService {
             count = iCarRepository.idRandom(Integer.parseInt(convertSTI));
         } while (count != 0);
         return Integer.parseInt(convertSTI);
+    }
+
+    public  String getRandomCode() {
+        String[] carBrands = { "Ford", "Toyota", "Hyundai" };
+        Random random = new Random();
+        int randomIndex = random.nextInt(carBrands.length);
+        return carBrands[randomIndex];
     }
 
     @Override

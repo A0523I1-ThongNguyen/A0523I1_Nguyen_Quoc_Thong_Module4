@@ -36,7 +36,7 @@ public class MusicController {
 
     @GetMapping("")
     public String showView(@RequestParam(defaultValue = "0", required = false) int page, Model model) {
-        Sort sort = Sort.by("view").descending();
+        Sort sort = Sort.by("view").ascending();
         Pageable pageable = PageRequest.of(page, 2, sort);
         Page<Music> musicPage = musicService.findAll(pageable);
         model.addAttribute("musicPage", musicPage);
@@ -114,10 +114,10 @@ public class MusicController {
         return "/list";
     }
 
-    @GetMapping("/type/{id}")
-    public String type(@PathVariable int id, @RequestParam(defaultValue = "0", required = false) int page, Model model) {
+    @GetMapping("/type/{idType}")
+    public String type(@PathVariable int idType, @RequestParam(defaultValue = "0", required = false) int page, Model model) {
         Pageable pageable = PageRequest.of(page, 2);
-        Page<Music> musicPage = musicService.searchForeignKeyOfMusic(pageable, id);
+        Page<Music> musicPage = musicService.searchForeignKeyOfMusic(pageable, idType);
         model.addAttribute("musicPage", musicPage);
         return "/list";
     }

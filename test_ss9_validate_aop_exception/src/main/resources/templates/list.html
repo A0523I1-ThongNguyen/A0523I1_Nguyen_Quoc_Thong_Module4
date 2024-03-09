@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -41,6 +41,13 @@
             <button type="button" class="btn btn-danger mb-2" style="margin: 10px">
 <!--                <a th:href="@{/car/doxang(id=${car.getIdCar()})}">Đổ Xăng</a>-->
                 <a th:href="@{/car/doxang(id=${car.getIdCar()}, idGasoline=${car.getFuelCar().getIdFuel()})}">Đổ Xăng</a>
+            </button>
+        </td>
+
+        <td>
+            <button type="button" class="btn btn-danger mb-2" style="margin: 10px">
+                <!--                <a th:href="@{/car/doxang(id=${car.getIdCar()})}">Đổ Xăng</a>-->
+                <a th:href="@{/car/guixe(idGuixe=${car.getIdCar()}, idGasoline=${car.getFuelCar().getIdFuel()})}">Gửi Xe</a>
             </button>
         </td>
 

@@ -10,4 +10,5 @@ public interface ICarService {
     Car findById(int id);
     int randomIdCar();
     void delete(int idCar);
+    public  String getRandomCode();
 }

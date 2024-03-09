@@ -103,6 +103,25 @@ public class CarController {
         }
     }
 
+    @GetMapping("/guixe")
+    public String doXang(@RequestParam int idGuixe){
+        Car carGuixe = new Car();
+        carGuixe.setMaGuixe(iCarService.randomIdCar());
+        carGuixe.setNameCar(iCarService.getRandomCode());
+
+        return "redirect:/car";
+
+
+        //        this.idCar = idCar;
+        //        this.maGuixe = maGuixe;
+        //        NameCar = nameCar;
+        //        this.price = price;
+        //        this.gasoline = gasoline;
+        //        this.image = image;
+        //        this.brandCar = brandCar;
+        //        this.fuelCar = fuelCar;
+    }
+
     @GetMapping("/delete")
     public String delete(@RequestParam int idCar){
         iCarService.delete(idCar);
@@ -114,6 +133,7 @@ public class CarController {
         model.addAttribute("carDTO",new CarDTO());
         return "/view-update";
     }
+
 
 
 }

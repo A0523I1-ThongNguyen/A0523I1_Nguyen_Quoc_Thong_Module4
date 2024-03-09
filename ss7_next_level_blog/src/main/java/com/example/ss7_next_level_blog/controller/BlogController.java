@@ -96,7 +96,7 @@ public class BlogController {
         List<Category> categoryList = iCategoryService.showList();
         model.addAttribute("blogOfCategory", blogOfCategory);
         model.addAttribute("categoryList", categoryList);
-        model.addAttribute("categoryID", categoryID);
+//        model.addAttribute("categoryID", categoryID);
         return "/category";
     }
 

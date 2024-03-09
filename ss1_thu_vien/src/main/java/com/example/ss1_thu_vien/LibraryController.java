@@ -20,7 +20,7 @@ public class LibraryController {
     }
 
     @PostMapping(value = "/tran")
-    public String translate(@RequestParam ( name = "e" ,required = false , defaultValue = "No Choose") String e, String word, Model model) {
+    public String translate(@RequestParam (required = false , defaultValue = "No Choose") String e, String word, Model model) {
         String result = null;
         int count = 0;
         Map<String, String> list = new HashMap<String, String>();
@@ -34,7 +34,7 @@ public class LibraryController {
         //
         for (Map.Entry<String, String> entry : list.entrySet()) {
             if (e.equals("vn")) {
-                proKey = entry.getKey();
+//                proKey = entry.getKey();
                 if (entry.getKey().equals(word)) {
                     result = word + " Translated Vietnamese is : " + entry.getValue();
                     count++;
@@ -43,7 +43,7 @@ public class LibraryController {
                     result = word + " Không có trong từ điển";
                 }
             } else if (e.equals("english")) {
-                proKey = entry.getValue();
+//                proKey = entry.getValue();
                 if (entry.getValue().equals(word)) {
                     result = word + " Translated English is :" + entry.getKey();
                     count++;

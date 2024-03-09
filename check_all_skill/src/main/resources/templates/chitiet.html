@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${employee}">
+  Id Employee:    <input type="hidden" th:field="*{idEm}" readonly>
+  Name Employee:  <input type="text" th:field="*{nameEm}" readonly>
+  Age:  <input type="text" th:field="*{ageEm}" readonly>
+  Salary:  <input type="text" th:field="*{salary}" readonly>
+  Name Company:  <select type="text" th:field="*{company}" readonly>
+  <option th:each="company : ${listCompany}" th:value="${company.idCompany}" th:text="${company.nameCompany}"></option>
+</select>
+</form>
+</body>
+</html>

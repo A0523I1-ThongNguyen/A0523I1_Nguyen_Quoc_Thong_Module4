@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

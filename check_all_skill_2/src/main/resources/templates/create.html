@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/student/createPost}" method="post" th:object="${studentDTO}">
+Id Student: <input type="text" th:field="*{idStudent}">
+Name Student:  <input type="text" th:field="*{nameStudent}">
+<p th:if="${#fields.hasErrors('nameStudent')}" th:errors="*{nameStudent}"></p>
+Status:  <input type="text" th:field="*{status}">
+Name School:  <select type="text" th:field="*{fkSchool}">
+  <option th:each="school : ${listSchool}" th:value="${school.getIdSchool()}" th:text="${school.getNameSchool()}"></option>
+</select>
+    <button>Create</button>
+</form>
+</body>
+</html>

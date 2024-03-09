@@ -12,7 +12,6 @@ public class Music {
     private String file;
     @ManyToOne
     @JoinColumn(name = "id_type")
-
     private Type knType;
 
     public Music() {

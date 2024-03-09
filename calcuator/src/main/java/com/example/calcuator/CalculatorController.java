@@ -19,7 +19,7 @@ public class CalculatorController {
         return "/index";
     }
     @PostMapping(value ="/calp")
-    public String Calculator(@RequestParam ( name = "e",required = false, defaultValue = "No Choose") String e, double num1, double num2,Model model){
+    public String Calculator(@RequestParam ( name = "e", required = false, defaultValue = "No Choose") String e, double num1, double num2,Model model){
         try {
             double result = 0;
             if (e.equals("plus")) {
