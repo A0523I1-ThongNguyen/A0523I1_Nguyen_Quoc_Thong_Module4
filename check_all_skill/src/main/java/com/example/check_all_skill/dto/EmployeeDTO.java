@@ -1,5 +1,6 @@
 package com.example.check_all_skill.dto;
 
+import com.example.check_all_skill.model.Company;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,18 +15,20 @@ public class EmployeeDTO implements Validator {
     private String nameEm;
     private int ageEm;
     private double salary;
-    private int fkCompany;
+//    private int fkCompany;
+    private Company company;
+
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(int idEm, String nameEm, int ageEm, double salary, int fkCompany) {
-        this.idEm = idEm;
-        this.nameEm = nameEm;
-        this.ageEm = ageEm;
-        this.salary = salary;
-        this.fkCompany = fkCompany;
-    }
+//    public EmployeeDTO(int idEm, String nameEm, int ageEm, double salary, int fkCompany) {
+//        this.idEm = idEm;
+//        this.nameEm = nameEm;
+//        this.ageEm = ageEm;
+//        this.salary = salary;
+//        this.fkCompany = fkCompany;
+//    }
 
     public int getIdEm() {
         return idEm;
@@ -59,12 +62,21 @@ public class EmployeeDTO implements Validator {
         this.salary = salary;
     }
 
-    public int getFkCompany() {
-        return fkCompany;
+//    public int getFkCompany() {
+//        return fkCompany;
+//    }
+//
+//    public void setFkCompany(int fkCompany) {
+//        this.fkCompany = fkCompany;
+//    }
+
+
+    public Company getCompany() {
+        return company;
     }
 
-    public void setFkCompany(int fkCompany) {
-        this.fkCompany = fkCompany;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     @Override

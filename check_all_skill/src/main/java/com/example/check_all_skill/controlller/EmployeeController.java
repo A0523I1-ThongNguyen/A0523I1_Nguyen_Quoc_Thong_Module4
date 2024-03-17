@@ -62,8 +62,8 @@ public class EmployeeController {
         }
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO,employee);
-        Company findCompany = companyService.findById(employeeDTO.getFkCompany());
-        employee.setCompany(findCompany);
+//        Company findCompany = companyService.findById(employeeDTO.getFkCompany());
+//        employee.setCompany(findCompany);
 
         employeeService.create(employee);
         return"redirect:/all";
@@ -74,7 +74,7 @@ public class EmployeeController {
         Employee employee = employeeService.findById(idEm);
 
         EmployeeDTO employeeDTO = new EmployeeDTO();
-        employeeDTO.setFkCompany(employee.getCompany().getIdCompany());
+//        employeeDTO.setFkCompany(employee.getCompany().getIdCompany());
 
         BeanUtils.copyProperties(employee,employeeDTO);
 
@@ -90,8 +90,8 @@ public class EmployeeController {
         Employee employee = new Employee();
 
         BeanUtils.copyProperties(employeeDTO,employee);
-        Company company = companyService.findById(employeeDTO.getFkCompany());
-        employee.setCompany(company);
+//        Company company = companyService.findById(employeeDTO.getFkCompany());
+//        employee.setCompany(company);
 
         employeeService.update(employee);
 //        Employee employee2 = new Employee(); tạo một đối tượng Entity tương ứng thêm 1 record vào DB

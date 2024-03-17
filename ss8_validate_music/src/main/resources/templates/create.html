@@ -7,7 +7,7 @@
 <body>
 <form th:action="@{/music/createPost}" method="post" th:object="${musicDTO}">
     nameSong: <input type="text" th:field="*{nameSong}">
-    <small style="color: red" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></small>
+        <small style="color: red" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></small>
     singer:  <input type="text" th:field="*{singer}">
     <small style="color: red" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></small>
     view: <input type="text" th:field="*{view}">

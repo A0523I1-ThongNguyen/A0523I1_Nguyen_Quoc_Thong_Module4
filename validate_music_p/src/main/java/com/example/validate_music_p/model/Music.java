@@ -12,9 +12,11 @@ public class Music {
     private String musicName;
     private String singer;
     @ManyToOne
-    @JoinColumn(name = "id",referencedColumnName = "id")
+    @JoinColumn(name = "kn_type")
     private MusicType musicType;
     private String file;
+
+
     public Music() {
     }
 

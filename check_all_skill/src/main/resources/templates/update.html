@@ -11,7 +11,7 @@
     <p th:if="${#fields.hasErrors('nameEm')}" th:errors="*{nameEm}"></p>
     Age:  <input type="text" th:field="*{ageEm}">
     Salary:  <input type="text" th:field="*{salary}">
-    Name Company:  <select type="text" th:field="*{fkCompany}">
+    Name Company:  <select type="text" th:field="*{company}">
     <option th:each="company : ${listCompany}" th:value="${company.idCompany}" th:text="${company.nameCompany}"></option>
 </select>
     <button>Update</button>
